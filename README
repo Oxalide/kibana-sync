@@ -1,0 +1,12 @@
+# kibana-sync
+
+This small tool helps managing multiple Kibana instances so that they're using a same set of Dashboards/Visualizations/Searches.
+
+Configuration can be versioned in a git repository, and applied through CI to a fleet of instances.
+
+It uses the AWS Go SDK to find and connect to your AWS account.
+
+That means that credentials are found through `~/.aws`, environment variables or EC2 instance role.
+
+By default, it will search through all regions for EC2 instances with a tag `Role` with the value `kibana`. Port `5601`
+must be open for this to work properly.
